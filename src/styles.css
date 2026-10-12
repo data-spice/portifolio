@@ -208,3 +208,49 @@ html.motion-ready .terminal-window[data-reveal].is-visible .terminal-bar{animati
 .contact-workspace-links .contact-email-action{display:grid;grid-template-columns:5.5rem 1fr auto;align-items:center;gap:.3rem;min-height:5rem;padding:1rem;border:0;border-right:1px solid #24483c28;border-bottom:1px solid #24483c28;background:transparent;color:#24483c;text-align:left;font:inherit;cursor:pointer}.contact-workspace-links .contact-email-action span{font:600 .75rem var(--mono);color:#697668}.contact-workspace-links .contact-email-action b{overflow-wrap:anywhere}.contact-workspace-links .contact-email-action:hover{background:#e9eee5}.contact-workspace-links .contact-email-action:focus-visible{outline:2px solid #c9785b;outline-offset:-3px}
 .email-composer .workspace-next:disabled{opacity:.68;cursor:wait;transform:none}.email-send-result{max-width:920px;margin:1rem 0;padding:1rem;border-left:3px solid #24483c;background:#e8eee5;line-height:1.55}.email-send-result.error{border-color:#c9785b;background:#f5ede4}
 .terminal-hints .terminal-command-suggestions button{border-color:#ffffff40;background:transparent;color:#eef3e9}.terminal-hints .terminal-command-suggestions button:hover{background:#d7e2d3;color:#203329;border-color:#d7e2d3}.terminal-more-commands summary{color:#dce6d8}.terminal-more-commands summary span{color:#bdcdb7}
+
+/* Mobile landing order: title, photographs, then the always-visible terminal. */
+.terminal-landing-layout{grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);grid-template-rows:auto auto;align-items:center}
+.terminal-heading{grid-column:1;grid-row:1;padding:0 0 1rem;min-width:0}
+.terminal-home-window{grid-column:1;grid-row:2;min-width:0;align-self:start}
+.terminal-portrait{grid-column:2;grid-row:1 / span 2;align-self:center}
+@media(max-width:760px){
+  .terminal-brandline,.terminal-stage-footer,.terminal-scroll-cue{display:none}
+  .terminal-stage{min-height:100svh;padding:1rem 0 1.5rem}
+  .terminal-stage-inner{width:min(100% - 2rem,34rem)}
+  .terminal-landing-layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;gap:1rem;padding:.75rem 0 0}
+  .terminal-heading{grid-column:1;grid-row:1;padding:0 0 .1rem}
+  .terminal-heading h1{font-size:clamp(2.6rem,10vw,3.8rem);line-height:1.02;margin:.55rem 0 .7rem}
+  .terminal-heading>p{font-size:1rem;line-height:1.5}
+  .terminal-overline{font-size:.72rem;letter-spacing:.06em}
+  .terminal-portrait{grid-column:1;grid-row:2;width:min(100%,25rem);max-width:25rem;margin-inline:auto;padding:0;background:transparent;border:0;box-shadow:none;transform:none}
+  .camera-gallery-stage{height:clamp(230px,67vw,330px)}
+  .camera-iris{width:min(78%,270px);opacity:.72}
+  .camera-photo.shape-natural img{max-width:100%;max-height:100%}
+  .camera-photo-caption{padding:.1rem .2rem 0}
+  .photo-gallery-hint{margin:.35rem 0 0;font-size:.62rem}
+  .terminal-home-window{grid-column:1;grid-row:3;width:100%;align-self:stretch}
+  .terminal-home-output{padding:.8rem .9rem .4rem}
+  .terminal-history-scroll{max-height:24svh;font-size:.92rem}
+  .terminal-form{position:sticky;bottom:0;z-index:2;min-height:3.25rem;background:#17271f;padding-inline:.1rem}
+  .terminal-form label{font-size:.8rem;white-space:nowrap}
+  .terminal-form input{font-size:1rem}
+  .terminal-hints{padding:.65rem .85rem .8rem}
+  .terminal-hints>span{font-size:.7rem}
+  .terminal-hints button{min-height:2.5rem;padding:.4rem .62rem}
+}
+@media(max-width:380px){.terminal-stage-inner{width:calc(100% - 1.4rem)}.terminal-overline{font-size:.65rem}.terminal-heading h1{font-size:clamp(2.35rem,10vw,3rem)}.terminal-home-output{padding:.7rem}.terminal-form label{font-size:.72rem}.terminal-history-scroll{max-height:21svh}}
+
+/* Keep the Android explanation and interactive phone in distinct, non-overlapping columns. */
+.android-workspace{grid-template-columns:minmax(0,1.15fr) minmax(270px,.85fr);align-items:start}
+.android-workspace>*{min-width:0}
+.android-summary,.android-summary>div{min-width:0}
+.android-summary p,.android-concept-list article p,.android-security-note{overflow-wrap:anywhere}
+.workspace-phone-stage{min-width:0;max-width:100%}
+.workspace-phone-screen{min-width:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.workspace-phone-screen .phone-app{min-width:0;min-height:0;padding:1rem .7rem 4.5rem;overflow-wrap:anywhere}
+.workspace-phone-screen .app-header,.workspace-phone-screen .app-list-row{min-width:0;gap:.35rem}
+.workspace-phone-screen .app-list-row>span{min-width:0;overflow-wrap:anywhere}
+.workspace-phone-screen .app-nav{z-index:2;max-width:100%;background:#fffcf5;scrollbar-width:thin}
+.workspace-phone-screen .app-nav button{min-width:0;flex:1 0 auto;white-space:nowrap}
+@media(max-width:860px){.android-workspace{grid-template-columns:minmax(0,1fr)}.workspace-phone-stage{padding:1rem .25rem}}
